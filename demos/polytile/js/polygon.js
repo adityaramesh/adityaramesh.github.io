@@ -47,7 +47,7 @@ function initialize_ui()
 		max: 60,
 		step: 1,
 		slide: function(event, ui) {
-			$("#angle").val(ui.value + "&deg;");
+			$("#angle").val(ui.value + "°");
 		}
 	});
 
