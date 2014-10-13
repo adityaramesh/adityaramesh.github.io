@@ -10,7 +10,7 @@ function render(ctx, w, h, state)
 	ctx.fillStyle = "black";
 
 	var sides = 6;
-	var theta = (sides - 2) * Math.PI / n;
+	var theta = (sides - 2) * Math.PI / sides;
 
 	var cx = w / 2;
 	var cy = h / 2;
