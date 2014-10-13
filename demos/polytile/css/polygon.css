@@ -11,6 +11,12 @@ canvas
 	margin: 0px auto;
 }
 
+table
+{
+	display: block;
+	margin: 0px auto;
+}
+
 table tr td:nth-child(2)
 {
 	width: 20em;
