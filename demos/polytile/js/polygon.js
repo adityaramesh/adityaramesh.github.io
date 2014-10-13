@@ -29,62 +29,68 @@ function render(ctx, w, h, state)
 	ctx.stroke();
 }
 
-function initialize_ui()
+function repaint(ctx, state)
+{
+	dim = Math.min(window.innerWidth, window.innerHeight);
+	bounds = [window.innerWidth, window.innerHeight - $("#options").height()];
+	reshape_canvas(can, {
+		"virtual_size": [dim, dim],
+		"fit_to": bounds
+	});
+	ctx = can.getContext("2d");
+	render(ctx, dim, dim, state);
+}
+
+function initialize_ui(ctx, state)
 {
 	$("#sides_slider").slider({
-		value: 6,
+		value: state["sides"],
 		min: 3,
 		max: 16,
 		step: 1,
 		slide: function(event, ui) {
 			$("#sides").val(ui.value);
+			state["sides"] = ui.value;
 		}
 	});
 
 	$("#angle_slider").slider({
-		value: 0,
+		value: state["angle"],
 		min: 0,
 		max: 60,
 		step: 1,
 		slide: function(event, ui) {
 			$("#angle").val(ui.value + "°");
+			state["angle"] = ui.value;
 		}
 	});
 
 	$("#thickness_slider").slider({
-		value: 1,
+		value: state["thickness"],
 		min: 1,
 		max: 5,
 		step: 1,
 		slide: function(event, ui) {
 			$("#thickness").val(ui.value);
+			state["thickness"] = ui.value;
 		}
 	});
 
 	$("#sides").val($("#sides_slider").slider("value"));
 	$("#angle").val($("#angle_slider").slider("value") + "°");
 	$("#thickness").val($("#thickness_slider").slider("value"));
+	repaint(ctx, state);
 }
 
 $(window).ready(function() {
-	initialize_ui();
-
 	var dim = 0;
-	var state = {};
+	var state = {"sides": 6, "angle": 0, "thickness": 1};
 	var can = document.getElementById("canvas");
 	var ctx = null;
 
+	initialize_ui(ctx, state);
 	$(window).on("resize orientationchange", function() {
-		// By setting the virtual drawing region to a square with the
-		// following side length, we avoid unnecessary scaling.
-		dim = Math.min(window.innerWidth, window.innerHeight);
-		bounds = [window.innerWidth, window.innerHeight - $("#options").height()];
-		reshape_canvas(can, {
-			"virtual_size": [dim, dim],
-			"fit_to": bounds
-		});
-		ctx = can.getContext("2d");
-		render(ctx, dim, dim, state);
+		repaint(ctx, state);
 	});
 	$(window).trigger("resize");
 });
