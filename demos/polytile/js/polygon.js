@@ -38,8 +38,8 @@ $(window).ready(function() {
 		slide: function(event, ui) {
 			$("#sides").val(ui.value);
 		}
-		$("#sides").val($("#sides_slider").slider("value"));
 	});
+	$("#sides").val($("#sides_slider").slider("value"));
 
 	var dim = 0;
 	var state = {};
