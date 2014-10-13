@@ -30,6 +30,17 @@ function render(ctx, w, h, state)
 }
 
 $(window).ready(function() {
+	$("#sides_slider").slider({
+		value: 6,
+		min: 3,
+		max: 16,
+		step: 1,
+		slide: function(event, ui) {
+			$("#sides").val(ui.value);
+		}
+		$("#sides").val($("#sides_slider").slider("value"));
+	});
+
 	var dim = 0;
 	var state = {};
 	var can = document.getElementById("canvas");
