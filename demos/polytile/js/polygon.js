@@ -34,7 +34,7 @@ function initialize_ui(can, ctx, state)
 	$("#angle_slider").slider({
 		value: state["angle"],
 		min: 0,
-		max: 60,
+		max: 120,
 		step: 1,
 		slide: function(event, ui) {
 			$("#angle").val(ui.value + "°");
