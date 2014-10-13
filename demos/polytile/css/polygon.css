@@ -11,6 +11,11 @@ canvas
 	margin: 0px auto;
 }
 
+input
+{
+	max-width: 32px;
+}
+
 table
 {
 	margin: 0px auto;
