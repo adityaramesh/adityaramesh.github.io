@@ -14,12 +14,8 @@ canvas
 table
 {
 	margin: 0px auto;
-}
-
-table tr
-{
-	padding: 12px;
 	border-spacing: 12px;
+	border-collapse: separate;
 }
 
 table tr td:nth-child(2)
