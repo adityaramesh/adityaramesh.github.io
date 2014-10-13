@@ -37,7 +37,7 @@ function initialize_ui()
 		max: 16,
 		step: 1,
 		slide: function(event, ui) {
-			$("#sides").text("" + ui.value);
+			$("#sides").val(ui.value);
 		}
 	});
 
@@ -47,7 +47,7 @@ function initialize_ui()
 		max: 60,
 		step: 1,
 		slide: function(event, ui) {
-			$("#angle").text("" + ui.value + "°");
+			$("#angle").val(ui.value + "°");
 		}
 	});
 
@@ -57,13 +57,13 @@ function initialize_ui()
 		max: 5,
 		step: 1,
 		slide: function(event, ui) {
-			$("#thickness").text("" + ui.value);
+			$("#thickness").val(ui.value);
 		}
 	});
 
-	$("#sides").text("" + $("#sides_slider").slider("value"));
-	$("#angle").text("" + $("#angle_slider").slider("value") + "°");
-	$("#thickness").text("" + $("#thickness_slider").slider("value"));
+	$("#sides").val($("#sides_slider").slider("value"));
+	$("#angle").val($("#angle_slider").slider("value") + "°");
+	$("#thickness").val($("#thickness_slider").slider("value"));
 }
 
 $(window).ready(function() {
