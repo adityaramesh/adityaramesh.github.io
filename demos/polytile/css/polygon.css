@@ -18,8 +18,7 @@ table
 
 table tr
 {
-	padding-top: 32px;
-	padding-bottom: 32px;
+	border-spacing: 12px;
 }
 
 table tr td:nth-child(2)
