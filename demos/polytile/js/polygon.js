@@ -37,7 +37,7 @@ function initialize_ui()
 		max: 16,
 		step: 1,
 		slide: function(event, ui) {
-			$("#sides").val(ui.value);
+			$("#sides").text("" + ui.value);
 		}
 	});
 
@@ -61,7 +61,7 @@ function initialize_ui()
 		}
 	});
 
-	$("#sides").val($("#sides_slider").slider("value"));
+	$("#sides").text("" + $("#sides_slider").slider("value"));
 	$("#angle").val($("#angle_slider").slider("value") + "°");
 	$("#thickness").val($("#thickness_slider").slider("value"));
 }
