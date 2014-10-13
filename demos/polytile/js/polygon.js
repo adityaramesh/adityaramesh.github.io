@@ -76,12 +76,12 @@ function render(ctx, w, h, state)
 	ctx.beginPath();
 	ctx.moveTo(
 		cx + r * Math.cos(Math.PI / 2 + init),
-		cy + r * Math.sin(Math.PI / 2 + init)
+		cy - r * Math.sin(Math.PI / 2 + init)
 	);
 	for (n = 1; n != sides; ++n) {
 		ctx.lineTo(
 			cx + r * Math.cos(Math.PI / 2 + init + n * theta),
-			cy + r * Math.sin(Math.PI / 2 + init + n * theta)
+			cy - r * Math.sin(Math.PI / 2 + init + n * theta)
 		);
 	}
 	ctx.closePath();
