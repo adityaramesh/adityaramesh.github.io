@@ -29,7 +29,7 @@ function render(ctx, w, h, state)
 	ctx.stroke();
 }
 
-function repaint(ctx, state)
+function repaint(can, ctx, state)
 {
 	dim = Math.min(window.innerWidth, window.innerHeight);
 	bounds = [window.innerWidth, window.innerHeight - $("#options").height()];
@@ -41,7 +41,7 @@ function repaint(ctx, state)
 	render(ctx, dim, dim, state);
 }
 
-function initialize_ui(ctx, state)
+function initialize_ui(can, ctx, state)
 {
 	$("#sides_slider").slider({
 		value: state["sides"],
@@ -88,9 +88,9 @@ $(window).ready(function() {
 	var can = document.getElementById("canvas");
 	var ctx = null;
 
-	initialize_ui(ctx, state);
+	initialize_ui(can, ctx, state);
 	$(window).on("resize orientationchange", function() {
-		repaint(ctx, state);
+		repaint(can, ctx, state);
 	});
 	$(window).trigger("resize");
 });
