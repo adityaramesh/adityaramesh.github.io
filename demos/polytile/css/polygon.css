@@ -18,6 +18,11 @@ table
 	border-collapse: separate;
 }
 
+table tr td:first-child
+{
+	padding-right: 8px;
+}
+
 table tr td:nth-child(2)
 {
 	width: 20em;
