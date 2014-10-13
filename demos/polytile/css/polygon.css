@@ -31,11 +31,6 @@ table
 	border-collapse: separate;
 }
 
-table tr td:first-child
-{
-	padding-right: 0px;
-}
-
 table tr td:last-child
 {
 	padding-bottom: 10px;
