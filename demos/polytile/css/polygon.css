@@ -16,6 +16,11 @@ table
 	margin: 0px auto;
 }
 
+table tr
+{
+	padding: 0px 8px 0px 8px;
+}
+
 table tr td:nth-child(2)
 {
 	width: 20em;
