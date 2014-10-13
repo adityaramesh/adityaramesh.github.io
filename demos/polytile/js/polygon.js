@@ -25,7 +25,7 @@ function render(ctx, w, h, state)
 		);
 	}
 	ctx.closePath();
-	ctx.draw();
+	ctx.stroke();
 }
 
 $(window).ready(function() {
