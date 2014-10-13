@@ -79,7 +79,7 @@ function initialize_ui(can, ctx, state)
 	$("#sides").val($("#sides_slider").slider("value"));
 	$("#angle").val($("#angle_slider").slider("value") + "°");
 	$("#thickness").val($("#thickness_slider").slider("value"));
-	repaint(ctx, state);
+	repaint(can, ctx, state);
 }
 
 $(window).ready(function() {
