@@ -67,13 +67,17 @@ function render(ctx, w, h, state)
 
 	var sides = state["sides"];
 	var theta = 2 * Math.PI / sides;
+	var init = state["angle"] * Math.PI / 180;
 
 	var cx = w / 2;
 	var cy = h / 2;
 	var r = Math.min(w, h) / 5;
 
 	ctx.beginPath();
-	ctx.moveTo(cx, cy + r);
+	ctx.moveTo(
+		cx + r * Math.cos(Math.PI / 2 + init),
+		cy + r * Math.sin(Math.PI / 2 + init)
+	);
 	for (n = 1; n != sides; ++n) {
 		ctx.lineTo(
 			cx + r * Math.cos(Math.PI / 2 + n * theta),
