@@ -5,30 +5,6 @@
 ** Contact:   _@adityaramesh.com
 */
 
-function render(ctx, w, h, state)
-{
-	ctx.fillStyle = "black";
-	ctx.lineWidth = 5;
-
-	var sides = 6;
-	var theta = 2 * Math.PI / sides;
-
-	var cx = w / 2;
-	var cy = h / 2;
-	var r = Math.min(w, h) / 5;
-
-	ctx.beginPath();
-	ctx.moveTo(cx, cy + r);
-	for (n = 1; n != sides; ++n) {
-		ctx.lineTo(
-			cx + r * Math.cos(Math.PI / 2 + n * theta),
-			cy + r * Math.sin(Math.PI / 2 + n * theta)
-		);
-	}
-	ctx.closePath();
-	ctx.stroke();
-}
-
 function repaint(can, ctx, state)
 {
 	dim = Math.min(window.innerWidth, window.innerHeight);
@@ -82,6 +58,30 @@ function initialize_ui(can, ctx, state)
 	$("#sides").val($("#sides_slider").slider("value"));
 	$("#angle").val($("#angle_slider").slider("value") + "°");
 	$("#thickness").val($("#thickness_slider").slider("value"));
+}
+
+function render(ctx, w, h, state)
+{
+	ctx.fillStyle = "black";
+	ctx.lineWidth = state["thickness"];
+
+	var sides = state["sides"];
+	var theta = 2 * Math.PI / sides;
+
+	var cx = w / 2;
+	var cy = h / 2;
+	var r = Math.min(w, h) / 5;
+
+	ctx.beginPath();
+	ctx.moveTo(cx, cy + r);
+	for (n = 1; n != sides; ++n) {
+		ctx.lineTo(
+			cx + r * Math.cos(Math.PI / 2 + n * theta),
+			cy + r * Math.sin(Math.PI / 2 + n * theta)
+		);
+	}
+	ctx.closePath();
+	ctx.stroke();
 }
 
 $(window).ready(function() {
