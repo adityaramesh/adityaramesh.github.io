@@ -67,6 +67,8 @@ function initialize_ui()
 }
 
 $(window).ready(function() {
+	initialize_ui();
+
 	var dim = 0;
 	var state = {};
 	var can = document.getElementById("canvas");
