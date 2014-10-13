@@ -29,7 +29,8 @@ function render(ctx, w, h, state)
 	ctx.stroke();
 }
 
-$(window).ready(function() {
+function initialize_ui()
+{
 	$("#sides_slider").slider({
 		value: 6,
 		min: 3,
@@ -39,8 +40,33 @@ $(window).ready(function() {
 			$("#sides").val(ui.value);
 		}
 	});
-	$("#sides").val($("#sides_slider").slider("value"));
 
+	$("#angle_slider").slider({
+		value: 0,
+		min: 0,
+		max: 60,
+		step: 1,
+		slide: function(event, ui) {
+			$("#angle").val(ui.value);
+		}
+	});
+
+	$("#thickness_slider").slider({
+		value: 1,
+		min: 1,
+		max: 5,
+		step: 1,
+		slide: function(event, ui) {
+			$("#thickness").val(ui.value);
+		}
+	});
+
+	$("#sides").val($("#sides_slider").slider("value"));
+	$("#angle").val($("#angle_slider").slider("value"));
+	$("#thickness").val($("#thickness_slider").slider("value"));
+}
+
+$(window).ready(function() {
 	var dim = 0;
 	var state = {};
 	var can = document.getElementById("canvas");
@@ -49,7 +75,7 @@ $(window).ready(function() {
 	$(window).on("resize orientationchange", function() {
 		// By setting the virtual drawing region to a square with the
 		// following side length, we avoid unnecessary scaling.
-		dim = 0.8 * Math.min(window.innerWidth, window.innerHeight);
+		dim = Math.min(window.innerWidth, window.innerHeight);
 		reshape_canvas(can, {
 			"virtual_size": [dim, dim],
 			"fit_to": "viewport"
