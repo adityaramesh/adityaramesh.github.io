@@ -22,7 +22,7 @@ $(window).ready(function() {
 		// following side length, we avoid unnecessary scaling.
 		dim = Math.min(window.innerWidth, window.innerHeight);
 		reshape_canvas(can, {
-			"virtual_size": [s, s],
+			"virtual_size": [dim, dim],
 			"fit_to": "viewport"
 		});
 		ctx = can.getContext("2d");
