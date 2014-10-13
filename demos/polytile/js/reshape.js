@@ -64,7 +64,7 @@ function reshape_canvas(can, options)
 	if (fit_viewport || typeof options.fit_to === "object") {
 		var css_size = [window.innerWidth, window.innerHeight];
 		if (!fit_viewport) {
-			css_size = options.virtual_size;
+			css_size = options.fit_to;
 		}
 		if (keep_ar) {
 			// Determine which dimension can be set to the

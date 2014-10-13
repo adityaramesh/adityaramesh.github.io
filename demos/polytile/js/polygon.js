@@ -78,7 +78,7 @@ $(window).ready(function() {
 		// By setting the virtual drawing region to a square with the
 		// following side length, we avoid unnecessary scaling.
 		dim = Math.min(window.innerWidth, window.innerHeight);
-		bounds = [0.8 * window.innerWidth, 0.8 * window.innerHeight];
+		bounds = [window.innerWidth, 0.8 * window.innerHeight];
 		reshape_canvas(can, {
 			"virtual_size": [dim, dim],
 			"fit_to": bounds
