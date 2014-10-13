@@ -14,7 +14,7 @@ function render(ctx, w, h, state)
 
 	var cx = w / 2;
 	var cy = h / 2;
-	var r = Math.min(w, h) / 10;
+	var r = Math.min(w, h) / 5;
 
 	ctx.beginPath();
 	ctx.moveTo(cx, cy + r);
