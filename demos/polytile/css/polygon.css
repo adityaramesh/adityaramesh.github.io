@@ -11,6 +11,12 @@ canvas
 	margin: 0px auto;
 }
 
+label
+{
+	font-family: Serif;
+	font-size: 100%;
+}
+
 input
 {
 	max-width: 24px;
