@@ -1,8 +1,8 @@
 /*
-** File Name:	animate.js
-** Author:	Aditya Ramesh
-** Date:	03/18/2014
-** Contact:	_@adityaramesh.com
+** File Name: reshape.js
+** Author:    Aditya Ramesh
+** Date:      10/13/2014
+** Contact:   _@adityaramesh.com
 */
 
 function backing_scale() {
@@ -50,7 +50,7 @@ function backing_scale() {
 function reshape_canvas(can, options)
 {
 	var ctx = can.getContext("2d");
-	var s = backing_scale(ctx);
+	var dim = backing_scale(ctx);
 	var vsize = options.virtual_size;
 	var keep_ar = true;
 
@@ -74,16 +74,16 @@ function reshape_canvas(can, options)
 			var wr = css_size[0] / vsize[0];
 			var hr = css_size[1] / vsize[1];
 			if (Math.round(wr * vsize[1]) <= css_size[1]) {
-				can.width = s * css_size[0];
-				can.height = s * Math.round(wr * vsize[1]);
+				can.width = dim * css_size[0];
+				can.height = dim * Math.round(wr * vsize[1]);
 				can.style.width = css_size[0] + "px";
 				can.style.height = Math.round(wr * vsize[1]) + "px";
 				ctx = can.getContext("2d");
 				ctx.scale(can.width / vsize[0], can.width / vsize[0]);
 			}
 			else {
-				can.height = s * css_size[1];
-				can.width = s * Math.round(hr * vsize[0]);
+				can.height = dim * css_size[1];
+				can.width = dim * Math.round(hr * vsize[0]);
 				can.style.height = css_size[1] + "px";
 				can.style.width = Math.round(hr * vsize[0]) + "px";
 				ctx = can.getContext("2d");
@@ -91,8 +91,8 @@ function reshape_canvas(can, options)
 			}
 		}
 		else {
-			can.width = s * css_size[0];
-			can.height = s * css_size[1];
+			can.width = dim * css_size[0];
+			can.height = dim * css_size[1];
 			can.style.width = css_size[0] + "px";
 			can.style.height = css_size[1] + "px";
 			ctx = can.getContext("2d");
@@ -100,66 +100,14 @@ function reshape_canvas(can, options)
 		}
 	}
 	else if (options.fit_to === "pixels") {
-		if (vsize[0] % s !== 0 || vsize[1] % s !== 0) {
+		if (vsize[0] % dim !== 0 || vsize[1] % dim !== 0) {
 			throw "Cannot fit to pixel resolution: 'vsize' is not \
 				a multiple of the device pixel ratio";
 		}
 		can.width = vsize[0];
 		can.height = vsize[1];
-		can.style.width = vsize[0] / s + "px";
-		can.style.height = vsize[1] / s+ "px";
+		can.style.width = vsize[0] / dim + "px";
+		can.style.height = vsize[1] / dim + "px";
 		ctx = can.getContext("2d");
 	}
 }
-
-function render(ctx, w, h, state)
-{
-	var r = 0.4 * w;
-	ctx.fillStyle = "gray";
-	ctx.fillRect(0, 0, w, h);
-	ctx.fillStyle = "black";
-	ctx.lineWidth = 3;
-	ctx.strokeStyle = "black";
-	ctx.beginPath();
-	ctx.lineCap = "round";
-	ctx.moveTo(w / 2, h / 2);
-	ctx.lineTo(w / 2 + r * Math.cos(state.theta),
-		h / 2 + r * Math.sin(state.theta));
-	ctx.stroke();
-}
-
-$(window).ready(function() {
-	var s = 0;
-	var state = { "theta": 0 };
-	var can = document.getElementById("canvas");
-	var ctx = null;
-
-	$(window).on("resize orientationchange", function() {
-		// By setting the virtual drawing region to a square with the
-		// following side length, we avoid unnecessary scaling.
-		s = Math.min(window.innerWidth, window.innerHeight);
-		reshape_canvas(can, {
-			"virtual_size": [s, s],
-			"fit_to": "viewport"
-		});
-		ctx = can.getContext("2d");
-	});
-	$(window).trigger("resize");
-
-	setInterval(function() {
-		state.theta += 0.01;
-	}, 16);
-
-	function callback()
-	{
-		render(ctx, s, s, state);
-		window.requestAnimationFrame(callback);
-	}
-	window.requestAnimationFrame(callback);
-
-	// TODO: Pause and unpause the animation and physics timers during the
-	// blur and focus events.
-	
-	// TODO: Deal with potential race conditions for the canvas context and
-	// state variable.
-});

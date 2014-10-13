@@ -1,0 +1,12 @@
+/*
+** File Name:	polygon.css
+** Author:	Aditya Ramesh
+** Date:	03/18/2014
+** Contact:	_@adityaramesh.com
+*/
+
+canvas
+{
+	display: block;
+	margin: 0px auto;
+}
