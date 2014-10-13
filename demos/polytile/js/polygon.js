@@ -7,8 +7,25 @@
 
 function render(ctx, w, h, state)
 {
-	ctx.fillStyle = "gray";
-	ctx.fillRect(0, 0, w, h);
+	ctx.fillStyle = "black";
+
+	var sides = 6;
+	var theta = (n - 2) * Math.PI / n;
+
+	var cx = w / 2;
+	var cy = h / 2;
+	var r = Math.min(w, h) / 10;
+
+	ctx.beginPath();
+	ctx.moveTo(cx, cy + r);
+	for (n = 1; n != sides; ++n) {
+		ctx.lineTo(
+			cx + r * Math.cos(Math.PI / 2 + n * theta),
+			cy + r * Math.sin(Math.PI / 2 + n * theta)
+		);
+	}
+	ctx.closePath();
+	ctx.draw();
 }
 
 $(window).ready(function() {
