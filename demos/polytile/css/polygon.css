@@ -19,7 +19,7 @@ label
 
 input
 {
-	max-width: 28px;
+	max-width: 32px;
 	font-family: Serif;
 	font-size: 100%;
 }
@@ -33,7 +33,7 @@ table
 
 table tr td:first-child
 {
-	padding-right: 8px;
+	padding-right: 0px;
 }
 
 table tr td:last-child
