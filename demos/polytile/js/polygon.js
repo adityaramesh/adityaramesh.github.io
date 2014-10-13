@@ -8,6 +8,7 @@
 function render(ctx, w, h, state)
 {
 	ctx.fillStyle = "black";
+	ctx.lineWidth = 5;
 
 	var sides = 6;
 	var theta = 2 * Math.PI / sides;
