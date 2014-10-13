@@ -27,7 +27,6 @@ input
 table
 {
 	margin: 0px auto;
-	padding-bottom: 10px;
 	border-spacing: 6px;
 	border-collapse: separate;
 }
@@ -35,6 +34,11 @@ table
 table tr td:first-child
 {
 	padding-right: 8px;
+}
+
+table tr td:last-child
+{
+	padding-bottom: 10px;
 }
 
 table tr td:nth-child(2)
