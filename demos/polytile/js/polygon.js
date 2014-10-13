@@ -80,8 +80,8 @@ function render(ctx, w, h, state)
 	);
 	for (n = 1; n != sides; ++n) {
 		ctx.lineTo(
-			cx + r * Math.cos(Math.PI / 2 + n * theta),
-			cy + r * Math.sin(Math.PI / 2 + n * theta)
+			cx + r * Math.cos(Math.PI / 2 + init + n * theta),
+			cy + r * Math.sin(Math.PI / 2 + init + n * theta)
 		);
 	}
 	ctx.closePath();
