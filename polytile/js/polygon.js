@@ -25,7 +25,7 @@ function initialize_ui(can, ctx, state)
 		max: 16,
 		step: 1,
 		slide: function(event, ui) {
-			$("#sides").val(ui.value);
+			$("#sides").text(ui.value);
 			state["sides"] = ui.value;
 			repaint(can, ctx, state);
 		}
@@ -37,7 +37,7 @@ function initialize_ui(can, ctx, state)
 		max: 120,
 		step: 1,
 		slide: function(event, ui) {
-			$("#angle").val(ui.value + "°");
+			$("#angle").text(ui.value + "°");
 			state["angle"] = ui.value;
 			repaint(can, ctx, state);
 		}
@@ -49,15 +49,15 @@ function initialize_ui(can, ctx, state)
 		max: 5,
 		step: 1,
 		slide: function(event, ui) {
-			$("#thickness").val(ui.value);
+			$("#thickness").text(ui.value);
 			state["thickness"] = ui.value;
 			repaint(can, ctx, state);
 		}
 	});
 
-	$("#sides").val($("#sides_slider").slider("value"));
-	$("#angle").val($("#angle_slider").slider("value") + "°");
-	$("#thickness").val($("#thickness_slider").slider("value"));
+	$("#sides").text($("#sides_slider").slider("value"));
+	$("#angle").text($("#angle_slider").slider("value") + "°");
+	$("#thickness").text($("#thickness_slider").slider("value"));
 }
 
 function render(ctx, w, h, state)
