@@ -29,7 +29,7 @@ and (max-device-width: 480px)
 
 	td:first-child
 	{
-		width: 130px;
+		width: 140px;
 		display: block;
 	}
 }
