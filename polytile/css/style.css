@@ -16,10 +16,5 @@ html, body
 td:first-child
 {
 	padding-right: 16px;
-}
-
-label
-{
-	display: inline-block;
-	width: 32px;
+	width: 256px;
 }
