@@ -22,6 +22,11 @@ td:first-child
 and (min-device-width: 320px) 
 and (max-device-width: 480px)
 {
+	table
+	{
+		max-width: 90%;
+	}
+
 	td:first-child
 	{
 		display: block;
