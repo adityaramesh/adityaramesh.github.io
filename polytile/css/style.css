@@ -30,6 +30,5 @@ and (max-device-width: 480px)
 	td:first-child
 	{
 		width: 140px;
-		display: block;
 	}
 }
