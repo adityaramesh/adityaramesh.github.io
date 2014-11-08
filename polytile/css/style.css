@@ -13,6 +13,11 @@ html, body
 	height: 100%;
 }
 
+td
+{
+	display: block;
+}
+
 td:first-child
 {
 	width: 150px;
@@ -30,6 +35,5 @@ and (max-device-width: 480px)
 	td:first-child
 	{
 		width: 140px;
-		display: block;
 	}
 }
