@@ -15,5 +15,5 @@ html, body
 
 td:first-child
 {
-	margin-right: 8px;
+	padding-right: 8px;
 }
