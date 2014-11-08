@@ -17,3 +17,8 @@ td:first-child
 {
 	padding-right: 16px;
 }
+
+label
+{
+	width: 32px;
+}
