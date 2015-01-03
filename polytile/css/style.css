@@ -15,12 +15,8 @@ html, body
 
 td:first-child
 {
-	display: block;
-}
-
-td:first-child
-{
 	width: 150px;
+	display: block;
 }
 
 @media only screen 
