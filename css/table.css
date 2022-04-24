@@ -1,0 +1,93 @@
+/*
+** Adapted from https://github.com/clayh53/tufte-jekyll/blob/master/css/tufte.scss.
+*/
+
+table {
+	width: 40%;
+	width: auto;
+	margin: 0 auto;
+	border-spacing: 0px;
+	font-size: 1.4rem;
+
+	overflow-x: scroll;
+}
+
+table p, table ul, table ol {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+table li {
+	margin: 0 0 0 1em;
+	padding: 0;
+}
+
+@media (max-width: 760px) {
+	figure { max-width: 100%; }
+}
+
+table.fullwidth, figure.fullwidth table {
+	width: 100%;
+	max-width: 100%;
+
+	/* Allows for side notes to be on the same line as the table. */
+	display: inline-block;
+}
+
+th, td {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+th {
+	font-weight: normal;
+	text-align: center;
+}
+
+td {
+	text-align: left;
+}
+
+th, th.hrule {
+	border-bottom: 1px solid black;
+}
+
+th.no-hrule {
+	border-bottom: none;
+}
+
+th, td {
+	padding-top: 0.35ex;
+	padding-bottom: 0.35ex;
+}
+
+thead:first-child tr:first-child th, tbody:first-child tr:first-child td {
+	padding-top: 0;
+}
+
+thead:last-child tr:last-child td, tbody:last-child tr:last-child td {
+	padding-bottom: 0;
+}
+
+/*
+** Adds extra space to distinguish the table header from the table body.
+*/
+
+thead:nth-last-child(2) tr:last-child th {
+	padding-bottom: 0.6ex;
+}
+
+tbody:nth-child(2) tr:first-child td {
+	padding-top: 0.6ex;
+}
+
+table caption {
+	font-size: 1.4rem;
+	text-align: left;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1.8ex;
+	caption-side: bottom;
+}
